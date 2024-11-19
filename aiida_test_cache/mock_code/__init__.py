@@ -31,4 +31,4 @@ except ImportError:
     aiida_core_fixtures = 'aiida.manage.tests.pytest_fixtures'
 else:
     aiida_core_fixtures = 'aiida.tools.pytest_fixtures'
-pytest_plugins = aiida_core_fixtures
+pytest_plugins = [aiida_core_fixtures]
