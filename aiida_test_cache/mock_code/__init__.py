@@ -15,5 +15,12 @@ __all__ = (
     "mock_code_factory",
 )
 
-# ensure aiida's pytest plugin is loaded, which we rely on
-pytest_plugins = ['aiida.manage.tests.pytest_fixtures']
+# Load aiida's pytest fixtures
+try:
+    # These new fixtures which use sqlite backend, introduced in aiida v2.6
+    # NOTE: It's not clear what happens if the user than activates
+    # the old fixtures as well.
+    import aiida.tools.pytest_fixtures  # type: ignore[import-not-found]
+    pytest_plugins = ['aiida.tools.pytest_fixtures']
+except ImportError:
+    pytest_plugins = ['aiida.manage.tests.pytest_fixtures']
