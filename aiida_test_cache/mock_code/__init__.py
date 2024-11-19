@@ -16,6 +16,7 @@ __all__ = (
 )
 
 # Load aiida's pytest fixtures
+"""
 try:
     # These new fixtures which use sqlite backend, introduced in aiida v2.6
     # NOTE: It's not clear what happens if the user than activates
@@ -24,3 +25,5 @@ try:
     pytest_plugins = ['aiida.tools.pytest_fixtures']
 except ImportError:
     pytest_plugins = ['aiida.manage.tests.pytest_fixtures']
+"""
+pytest_plugins = ['aiida.manage.tests.pytest_fixtures']
